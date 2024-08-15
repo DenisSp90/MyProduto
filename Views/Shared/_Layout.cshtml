@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - MyProduto</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/MyProduto.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <nav class="navbar is-light" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand d-flex align-items-center justify-content-between">
+            <a class="navbar-item logo d-flex align-items-center" href="#">
+                <strong>MyProduto</strong>
+            </a>
+            <i class="bi bi-list toggle-sidebar-btn menu-icon" id="toggle-sidebar"></i>
+        </div>
+
+        <div id="navbarMenu" class="navbar-menu">
+            <div class="navbar-end">
+                <a class="navbar-item" href="#">Contato</a>
+                <button id="darkModeToggle" class="button is-light is-small">
+                    🌙
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <aside class="sidebar" id="sidebar">
+        <aside class="menu">
+            <p class="menu-label">Meus Produtos</p>
+            <ul class="menu-list">
+                <li><a>Dashboard</a></li>
+                <li><a asp-controller="Produtos" asp-action="Index">Cadastro</a></li>
+            </ul>
+            <p class="menu-label">Relátorios</p>
+            <ul class="menu-list">
+                <li><a>Team Settings</a></li>
+                <li>
+                    <a>Manage Your Team</a>
+                    <ul>
+                        <li><a>Members</a></li>
+                        <li><a>Plugins</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </aside>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="main-content" id="main-content">
+        <section class="section">
+            <div class="container">
+                @RenderBody()
+            </div>
+        </section>
+    </div>
+
+    <footer class="border-top footer text-muted custom-footer" style="position: fixed;">
+        <div class="container">
+            &copy; 2024 - Feito Por  - <a href="https://www.linkedin.com/in/denis-meneses-283b00264/">Denis Meneses</a>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <!-- FontAwesome for icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    
+    <!-- FontAwesome for icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

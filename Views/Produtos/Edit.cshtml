@@ -1,0 +1,66 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model Produto
+
+<section class="section">
+    <div class="container">
+        <h1 class="title">Editar Produto</h1>
+
+        <form asp-action="Edit" method="post">
+            <div class="box">
+                <input class="input" asp-for="Id" type="hidden">
+                <div class="field">
+                    <label class="label">Nome</label>
+                    <div class="control">
+                        <input class="input" asp-for="Nome" placeholder="Digite o nome do produto">
+                    </div>
+                    <p class="help is-danger">@Html.ValidationMessageFor(m => m.Nome)</p>
+                </div>
+
+                <div class="field">
+                    <label class="label">Preço</label>
+                    <div class="control">
+                        <input class="input" asp-for="Preco" placeholder="Digite o preço do produto">
+                    </div>
+                    <p class="help is-danger">@Html.ValidationMessageFor(m => m.Preco)</p>
+                </div>
+
+                <div class="field">
+                    <label class="label">Quantidade em Estoque</label>
+                    <div class="control">
+                        <input class="input" asp-for="QuantidadeEstoque" placeholder="Digite a quantidade em estoque">
+                    </div>
+                    <p class="help is-danger">@Html.ValidationMessageFor(m => m.QuantidadeEstoque)</p>
+                </div>
+
+                <div class="field">
+                    <label class="label">Estoque Mínimo</label>
+                    <div class="control">
+                        <input class="input" asp-for="EstoqueMinimo" placeholder="Digite o estoque mínimo">
+                    </div>
+                    <p class="help is-danger">@Html.ValidationMessageFor(m => m.EstoqueMinimo)</p>
+                </div>
+
+                <div class="field">
+                    <label class="label">Última Movimentação</label>
+                    <div class="control">
+                        <input class="input" asp-for="UltimaMovimentacao" placeholder="Digite a data da última movimentação" type="datetime-local">
+                    </div>
+                    <p class="help is-danger">@Html.ValidationMessageFor(m => m.UltimaMovimentacao)</p>
+                </div>
+
+                <div class="field is-grouped">
+                    <div class="control">
+                        <button type="submit" class="button is-primary">Salvar</button>
+                    </div>
+                    <div class="control">
+                        <a href="@Url.Action("Index", "Produto")" class="button is-link is-light">Cancelar</a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>

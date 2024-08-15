@@ -1,0 +1,57 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model IEnumerable<Produto>
+
+<section class="section">
+    <div class="container">
+        <div class="level">
+            <div class="level-left">
+                <h2 class="title is-4">Produtos</h2>
+            </div>
+            <div class="level-right">
+                <p>
+                    <a asp-action="Create" class="button is-primary is-light">
+                        <span class="icon">
+                            <i class="fas fa-plus"></i>
+                        </span>
+                        <span>Novo Produto</span>
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<table class="table is-fullwidth is-striped is-hoverable is-bordered">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Quantidade em Estoque</th>
+            <th>Estoque Mínimo</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Nome</td>
+                <td>@item.QuantidadeEstoque</td>
+                <td>@item.EstoqueMinimo</td>
+                <td>
+                    <a class="button is-info is-small" asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                    <a class="button is-info is-small" asp-action="Detalhes" asp-route-id="@item.Id">Detalhes</a> |
+                    <a href="javascript:void(0);"
+                       class="button is-danger is-small"
+                       onclick="confirmDelete('@item.Id')">Excluir</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<script src="~/js/produtoscontroller.js"></script>
