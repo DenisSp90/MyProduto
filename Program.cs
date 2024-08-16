@@ -1,11 +1,15 @@
 using Microsoft.EntityFrameworkCore;
 using MyProduto.Data;
+using MyProduto.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Adicionando o serviço do DbContext com SQLite
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+builder.Services.AddTransient<IRelatorioService, RelatorioService>();
+builder.Services.AddTransient<IProdutoService, ProdutoService>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

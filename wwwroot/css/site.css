@@ -6,6 +6,11 @@ html, body {
     flex-direction: column;
 }
 
+.hero {
+    background-color: #f5f5f5;
+    padding: 2rem;
+}
+
 /* O conteúdo principal deve crescer para ocupar o espaço disponível */
 .content {
     flex: 1;

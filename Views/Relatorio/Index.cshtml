@@ -1,0 +1,48 @@
+﻿@{
+    ViewData["Title"] = "Relatórios de Estoque";
+}
+
+<section class="section">
+    <div class="container">
+        <h1 class="title has-text-centered">Relatórios de Estoque</h1>
+        <p class="subtitle has-text-centered">Selecione o relatório que deseja gerar</p>
+
+        <div class="columns is-multiline is-centered">
+            <div class="column is-one-quarter">
+                <a href="@Url.Action("ProdutosEmEstoque", "Relatorio")" class="box has-text-centered">
+                    <span class="icon is-large">
+                        <i class="fas fa-boxes fa-3x"></i>
+                    </span>
+                    <h2 class="title is-5 mt-3">Produtos em Estoque</h2>
+                </a>
+            </div>
+
+            <div class="column is-one-quarter">
+                <a href="@Url.Action("ProdutosComEstoqueBaixo", "Relatorio")" class="box has-text-centered">
+                    <span class="icon is-large">
+                        <i class="fas fa-exclamation-triangle fa-3x"></i>
+                    </span>
+                    <h2 class="title is-5 mt-3">Produtos com Estoque Baixo</h2>
+                </a>
+            </div>
+
+            <div class="column is-one-quarter">
+                <a href="@Url.Action("MovimentacaoEstoque", "Relatorio")" class="box has-text-centered">
+                    <span class="icon is-large">
+                        <i class="fas fa-exchange-alt fa-3x"></i>
+                    </span>
+                    <h2 class="title is-5 mt-3">Movimentação do Estoque</h2>
+                </a>
+            </div>
+
+            <div class="column is-one-quarter">
+                <a href="@Url.Action("ProdutosParados", "Relatorio")" class="box has-text-centered">
+                    <span class="icon is-large">
+                        <i class="fas fa-stop-circle fa-3x"></i>
+                    </span>
+                    <h2 class="title is-5 mt-3">Produtos Parados</h2>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>

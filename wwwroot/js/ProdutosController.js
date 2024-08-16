@@ -51,45 +51,7 @@ function confirmDelete(id) {
 }
 
 $(document).ready(function () {
-
-    //$('#NomeProduto').on('blur', function () {
-    //    debugger;
-
-
-    //    var nome = $(this).val();
-    //    var id = $('#ProdutoId').val(); // Supondo que você tenha um campo oculto para o ID do produto
-
-
-    //    if (nome) {
-    //        $.ajax({
-    //            url: '/Produtos/CheckProdutoNome',
-    //            type: 'GET',
-    //            data: { nome: nome},
-    //            success: function (exists) {
-    //                debugger;
-
-    //                if (exists) {
-    //                    Swal.fire({
-    //                        title: 'Produto Já Cadastrado',
-    //                        text: 'Este nome de produto já está registrado. Deseja editar o produto existente?',
-    //                        icon: 'warning',
-    //                        showCancelButton: true,
-    //                        confirmButtonText: 'Editar',
-    //                        cancelButtonText: 'Continuar Cadastro'
-    //                    }).then((result) => {
-    //                        if (result.isConfirmed) {
-    //                            // Redireciona para a view de edição com o ID do produto
-    //                            window.location.href = '@Url.Action("Edit", "Produtos")?id=' + encodeURIComponent(id);
-    //                        }
-    //                    });
-    //                }
-    //            },
-    //            error: function () {
-    //                debugger;
-
-    //                Swal.fire('Erro', 'Houve um erro ao verificar o nome do produto.', 'error');
-    //            }
-    //        });
-    //    }
-    //});
+    debugger;
+    // Aplica a máscara de moeda ao campo com id 'preco'
+    $('#preco').mask('000.000.000.000.000,00', { reverse: true });
 });

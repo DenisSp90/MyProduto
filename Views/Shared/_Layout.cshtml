@@ -3,20 +3,21 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - MyProduto</title>
+    <title>@ViewData["Title"] - MyProduto</title>    
 
     <link href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/MyProduto.styles.css" asp-append-version="true" />
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cleave.js/1.6.0/cleave.min.js"></script>
+
 </head>
 <body>
     <nav class="navbar is-light" role="navigation" aria-label="main navigation">
         <div class="navbar-brand d-flex align-items-center justify-content-between">
-            <a class="navbar-item logo d-flex align-items-center" href="#">
+            <a class="navbar-item logo d-flex align-items-center" href="@Url.Action("Index", "Home")">
                 <strong>MyProduto</strong>
             </a>
             <i class="bi bi-list toggle-sidebar-btn menu-icon" id="toggle-sidebar"></i>
@@ -36,19 +37,18 @@
         <aside class="menu">
             <p class="menu-label">Meus Produtos</p>
             <ul class="menu-list">
-                <li><a>Dashboard</a></li>
+                <li><a href="@Url.Action("Index", "Home")">Dashboard</a></li>
                 <li><a asp-controller="Produtos" asp-action="Index">Cadastro</a></li>
             </ul>
             <p class="menu-label">Relátorios</p>
             <ul class="menu-list">
-                <li><a>Movimentação Estoque</a></li>
+                <li><a href="@Url.Action("MovimentacaoEstoque", "Relatorio")">Movimentação Estoque</a></li>
                 <li>
-                    <a>Meus Produtos</a>
+                    <a asp-controller="Relatorio" asp-action="Index">Meus Produtos</a>
                     <ul>
-                        <li><a>Produtos Em Estoque</a></li>
-                        <li><a>Produtos Com Estoque Baixo</a></li>
-                        <li><a>Produtos Parados</a></li>
-
+                        <li><a href="@Url.Action("ProdutosEmEstoque", "Relatorio")">Produtos Em Estoque</a></li>
+                        <li><a href="@Url.Action("ProdutosComEstoqueBaixo", "Relatorio")">Produtos Com Estoque Baixo</a></li>
+                        <li><a href="@Url.Action("ProdutosParados", "Relatorio")">Produtos Parados</a></li>
                     </ul>
                 </li>
             </ul>

@@ -2,13 +2,14 @@
 using Microsoft.EntityFrameworkCore;
 using MyProduto.Data;
 using MyProduto.Models;
+using MyProduto.Services;
 
 namespace MyProduto.Controllers;
 
 public class ProdutosController : Controller
 {
     private readonly ApplicationDbContext _context;
-
+    
     public ProdutosController(ApplicationDbContext context)
     {
         _context = context;
@@ -141,26 +142,7 @@ public class ProdutosController : Controller
         }
         return View(produto);
     }
-
-
-
-    //public async Task<IActionResult> Delete(int? id)
-    //{
-    //    if (id == null)
-    //    {
-    //        return NotFound();
-    //    }
-
-    //    var produto = await _context.Produtos
-    //        .FirstOrDefaultAsync(m => m.Id == id);
-    //    if (produto == null)
-    //    {
-    //        return NotFound();
-    //    }
-
-    //    return View(produto);
-    //}
-
+    
     [HttpPost]
     public async Task<IActionResult> DeleteConfirmed(int id)
     {
@@ -205,7 +187,6 @@ public class ProdutosController : Controller
         }
     }
 
-
     [HttpGet]
     public async Task<JsonResult> CheckProdutoNome(string nome)
     {
@@ -230,9 +211,8 @@ public class ProdutosController : Controller
         }
     }
 
-
     private bool ProdutoExists(int id)
     {
         return _context.Produtos.Any(e => e.Id == id);
-    }
+    }   
 }
