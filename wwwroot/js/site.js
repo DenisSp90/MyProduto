@@ -37,3 +37,76 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+$(document).ready(function () {
+    $('#print-link').on('click', function (e) {
+        e.preventDefault(); // Evita que o link execute sua ação padrão
+
+        Swal.fire({
+            title: 'Você deseja realizar a impressão?',
+            text: "Você será redirecionado para a página de relatório.",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Sim, imprimir!',
+            cancelButtonText: 'Não, cancelar',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Redireciona para a URL desejada
+                window.location.href = 'Relatorio/MovimentacaoEstoque';
+            }
+        });
+    });
+
+    $('#estoque-link').on('click', function (e) {
+        e.preventDefault(); // Evita que o link execute sua ação padrão
+
+        Swal.fire({
+            title: 'Você deseja visualizar os produtos em estoque?',
+            text: "Você será redirecionado para a página de produtos em estoque.",
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonText: 'Sim, visualizar!',
+            cancelButtonText: 'Não, cancelar',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Redireciona para a URL desejada
+                window.location.href = 'Relatorio/ProdutosEmEstoque';
+            }
+        });
+    });
+
+    $('#estoque-baixo-link').on('click', function (e) {
+        e.preventDefault(); // Evita que o link execute sua ação padrão
+
+        Swal.fire({
+            title: 'Você deseja visualizar produtos com estoque baixo?',
+            text: "Você será redirecionado para a página de produtos com estoque baixo.",
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonText: 'Sim, visualizar!',
+            cancelButtonText: 'Não, cancelar',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Redireciona para a URL desejada
+                window.location.href = 'Relatorio/ProdutosComEstoqueBaixo';
+            }
+        });
+    });
+
+    $('#produtos-parados-link').on('click', function (e) {
+        e.preventDefault(); // Evita que o link execute sua ação padrão
+
+        Swal.fire({
+            title: 'Você deseja visualizar produtos parados?',
+            text: "Você será redirecionado para a página de produtos parados.",
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonText: 'Sim, visualizar!',
+            cancelButtonText: 'Não, cancelar',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Redireciona para a URL desejada
+                window.location.href = 'Relatorio/ProdutosParados';
+            }
+        });
+    });
+});
