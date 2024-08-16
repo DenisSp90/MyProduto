@@ -40,51 +40,75 @@ html, body {
 
 
 /* Custom styles */
+/* Estilos para o menu lateral */
+/* Estilos para a navbar */
+.navbar {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000; /* Garante que a navbar fique acima do aside */
+}
+
+/* Estilos para o menu lateral */
 .sidebar {
     width: 250px;
+    background-color: #f8f9fa;
     position: fixed;
     top: 0;
-    left: 0;
+    left: -250px;
     height: 100%;
-    background-color: #f5f5f5;
-    padding-top: 60px; /* Adjust for navbar height */
-    transition: transform 0.3s ease;
+    transition: left 0.3s ease;
+    z-index: 999; /* Garante que o sidebar fique abaixo da navbar */
 }
 
-    .sidebar.hidden {
-        transform: translateX(-100%);
+    .sidebar.open {
+        left: 0;
     }
 
-.main-content {
-    margin-left: 250px;
+/* Estilos para o conteúdo principal */
+#main-content {
+    margin-left: 0;
     transition: margin-left 0.3s ease;
+    padding: 20px;
 }
 
-    .main-content.full-width {
-        margin-left: 0;
-    }
-
-.navbar {
-    z-index: 10;
+.navbar-menu {
+    margin-left: 250px; /* Espaço para o menu lateral */
 }
 
+/* Oculta o ícone em telas maiores */
 .menu-icon {
+    font-size: 24px;
     cursor: pointer;
-    padding: 1rem;
+    margin: 10px;
 }
 
-    .menu-icon i {
-        font-size: 24px;
-    }
-
-/* Ocultar a sidebar em telas menores por padrão */
-@media (max-width: 768px) {
+@media (min-width: 768px) {
     .sidebar {
-        transform: translateX(-100%);
+        left: 0; /* Exibe o menu lateral em telas maiores */
     }
 
-    .main-content {
-        margin-left: 0;
+    .menu-icon {
+        display: none; /* Oculta o ícone em telas maiores */
+    }
+
+    #main-content {
+        margin-left: 250px; /* Ajusta o conteúdo principal para exibir ao lado da sidebar */
+    }
+
+    .navbar-menu {
+        margin-left: 0; /* Remove o espaço para o menu lateral em telas maiores */
+    }
+}
+
+/* Ajusta o layout para telas menores */
+@media (max-width: 768px) {
+    #main-content {
+        margin-left: 0; /* Remove o espaço para o menu lateral em telas menores */
+    }
+
+    .navbar-menu {
+        margin-left: 0; /* Remove o espaço para o menu lateral em telas menores */
     }
 }
 

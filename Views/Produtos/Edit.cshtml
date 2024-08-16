@@ -1,7 +1,5 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
+    ViewData["Title"] = "Editar Produto";
 }
 @model Produto
 
@@ -57,7 +55,7 @@
                         <button type="submit" class="button is-primary">Salvar</button>
                     </div>
                     <div class="control">
-                        <a href="@Url.Action("Index", "Produto")" class="button is-link is-light">Cancelar</a>
+                        <a href="@Url.Action("Index", "Produtos")" class="button is-link is-light">Cancelar</a>
                     </div>
                 </div>
             </div>

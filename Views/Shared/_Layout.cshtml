@@ -6,6 +6,10 @@
     <title>@ViewData["Title"] - MyProduto</title>    
 
     <link href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" rel="stylesheet">
+
+    <!-- Adicione o CSS do Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css">
+
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/MyProduto.styles.css" asp-append-version="true" />
 
@@ -24,7 +28,6 @@
 
         <div id="navbarMenu" class="navbar-menu">
             <div class="navbar-end">
-                <a class="navbar-item" href="#">Contato</a>
                 <button id="darkModeToggle" class="button is-light is-small">
                     🌙
                 </button>
@@ -34,12 +37,15 @@
 
     <aside class="sidebar" id="sidebar">
         <aside class="menu">
+            <br />
+            <br />
+
             <p class="menu-label">Meus Produtos</p>
             <ul class="menu-list">
                 <li><a href="@Url.Action("Index", "Home")">Dashboard</a></li>
                 <li><a asp-controller="Produtos" asp-action="Index">Cadastro</a></li>
             </ul>
-            <p class="menu-label">Relátorios</p>
+            <p class="menu-label">Relatórios</p>
             <ul class="menu-list">
                 <li>
                     <a href="#" id="print-link">Movimentação Estoque</a>
@@ -63,7 +69,7 @@
     </aside>
 
     <!-- Main Content -->
-    <div class="main-content" id="main-content">
+    <div id="main-content">
         <section class="section">
             <div class="container">
                 @RenderBody()

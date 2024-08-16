@@ -2,7 +2,6 @@
 using Microsoft.EntityFrameworkCore;
 using MyProduto.Data;
 using MyProduto.Models;
-using MyProduto.Services;
 
 namespace MyProduto.Controllers;
 
@@ -35,7 +34,6 @@ public class ProdutosController : Controller
             _context.Add(produto);
             await _context.SaveChangesAsync();
 
-            // Registro da movimentação de estoque inicial
             var movimentacao = new MovimentacaoEstoque
             {
                 ProdutoId = produto.Id,
@@ -102,7 +100,6 @@ public class ProdutosController : Controller
                 // Capturar a diferença de quantidade antes de atualizar
                 int diferencaQuantidade = produto.QuantidadeEstoque - produtoOriginal.QuantidadeEstoque;
 
-                // Atualizar propriedades do produto original
                 produtoOriginal.Nome = produto.Nome;
                 produtoOriginal.Preco = produto.Preco;
                 produtoOriginal.EstoqueMinimo = produto.EstoqueMinimo;
@@ -112,7 +109,6 @@ public class ProdutosController : Controller
                 // Salvar as alterações no produto original
                 await _context.SaveChangesAsync();
 
-                // Verificar se houve mudança na quantidade
                 if (diferencaQuantidade != 0)
                 {
                     var movimentacao = new MovimentacaoEstoque
@@ -154,7 +150,6 @@ public class ProdutosController : Controller
 
             if (produto != null)
             {
-                // Registro da movimentação de saída
                 var movimentacao = new MovimentacaoEstoque
                 {
                     ProdutoId = produto.Id,
@@ -173,17 +168,8 @@ public class ProdutosController : Controller
         }
         catch (Exception ex)
         {
-            // Log da exceção (substitua pelo seu mecanismo de log)
-            // _logger.LogError(ex, "Erro ao tentar deletar o produto com ID {Id}", id);
-
-            // Exibir uma mensagem de erro ao usuário (opcional)
             ModelState.AddModelError("", "Ocorreu um erro ao tentar deletar o produto. Por favor, tente novamente.");
-
-            // Opcional: redirecionar para uma página de erro
-            // return RedirectToAction("Error", "Home");
-
             return Json(new { success = false, errorMessage = ex.Message });
-
         }
     }
 
@@ -192,21 +178,17 @@ public class ProdutosController : Controller
     {
         try
         {
-            // Verifica se o nome do produto já existe na base de dados
             var produtoExistente = await _context.Produtos
                  .Where(p => p.Nome.ToLower() == nome.ToLower())
                 .ToArrayAsync();
 
-            // Retorna true se o produto existir, false caso contrário
             return Json(produtoExistente != null);
         }
         catch (Exception ex)
         {
-            // Loga o erro e retorna uma resposta indicando falha
-            // Você pode usar um sistema de logging como Serilog, NLog, etc.
             Console.Error.WriteLine($"Erro ao verificar o produto: {ex.Message}");
 
-            // Retorna uma resposta JSON com um erro, pode ajustar conforme necessário
+
             return Json(new { success = false, message = "Erro ao verificar o produto." });
         }
     }
