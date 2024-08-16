@@ -1,0 +1,28 @@
+Instruções para Iniciar o Projeto MyProdutos
+
+### Pré-requisitos ### 
+Antes de começar, verifique se você possui os seguintes requisitos:
+
+1) .NET SDK: Certifique-se de ter o .NET SDK instalado. Ele é necessário para compilar e executar aplicações ASP.NET Core.
+2) IDE: Utilize uma IDE compatível, como o Visual Studio ou o Visual Studio Code com a extensão C# instalada.
+
+### Passos para Iniciar o Projeto ### 
+
+1) Navegar para o Diretório do Projeto
+Abra o terminal ou prompt de comando e navegue até o diretório onde o projeto "MyProdutos" está localizado. Execute o seguinte comando:
+
+	- {cd caminho/para/seu/projeto/MyProdutos}
+
+Substitua caminho/para/seu/projeto pelo caminho real onde o projeto está armazenado.
+
+2) Restaurar Dependências
+Execute o comando abaixo para restaurar as dependências e pacotes NuGet necessários para o projeto:
+
+	- dotnet restore
+
+3) Executar o Projeto
+Inicie o servidor web e execute a aplicação com o seguinte comando:
+
+	- dotnet run
+
+O projeto será iniciado e estará disponível no http://localhost:5000 por padrão. Abra seu navegador e acesse este endereço para visualizar a aplicação.
